@@ -1,0 +1,48 @@
+// 1. Función para leer el tamaño del arreglo
+function leerTamañoArreglo() {
+    // Usamos prompt para pedir el tamaño del arreglo al usuario
+    let tamaño = parseInt(prompt("Introduce el tamaño del arreglo:"));
+    return tamaño;
+}
+
+// 2. Función para inicializar el arreglo con valores aleatorios
+function inicializarArreglo(tamaño) {
+    let arreglo = [];
+    // Inicializamos el arreglo con números aleatorios entre 1 y 100
+    for (let i = 0; i < tamaño; i++) {
+        arreglo.push(Math.floor(Math.random() * 100) + 1);
+    }
+    return arreglo;
+}
+
+// 3. Función para determinar el valor mayor del arreglo
+function determinarMayor(arreglo) {
+    let mayor = arreglo[0];  // Asumimos que el primer valor es el mayor inicialmente
+    for (let i = 1; i < arreglo.length; i++) {
+        if (arreglo[i] > mayor) {
+            mayor = arreglo[i];  // Actualizamos el mayor
+        }
+    }
+    return mayor;
+}
+
+// Función principal que utiliza las funciones anteriores
+function main() {
+    // Leemos el tamaño del arreglo
+    let tamaño = leerTamañoArreglo();
+    
+    // Inicializamos el arreglo con valores aleatorios
+    let arreglo = inicializarArreglo(tamaño);
+    
+    // Mostramos el arreglo generado
+    console.log("Arreglo generado: " + arreglo);
+    
+    // Determinamos el valor mayor del arreglo
+    let mayor = determinarMayor(arreglo);
+    
+    // Mostramos el valor mayor
+    console.log("El mayor valor en el arreglo es: " + mayor);
+}
+
+// Ejecutamos la función principal
+main();
